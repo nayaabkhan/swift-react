@@ -1,21 +1,24 @@
-import { vars } from '@themes/default.css'
+import classNames from 'classnames'
+import { space } from '@tokens'
+import { atoms } from '@themes/atoms.css'
 
-export type Spacing = 'loose' | 'looser' | 'loosest'
+export type Spacing = keyof typeof space
 
 export interface Spaceable extends JSX.Element {
   spacing: <T extends Spaceable>(this: T, spacing: Spacing) => T
 }
 
-const spacingMap: { [key in Spacing]: string } = {
-  loose: vars.space.small,
-  looser: vars.space.medium,
-  loosest: vars.space.large,
-}
-
 export function spacing<T extends Spaceable>(this: T, spacing: Spacing) {
+  const className = classNames(
+    this.props.className,
+    atoms({
+      gap: spacing,
+    }),
+  )
+
   this.props = {
     ...this.props,
-    style: { ...this.props.style, gap: spacingMap[spacing] },
+    className,
   }
 
   return this

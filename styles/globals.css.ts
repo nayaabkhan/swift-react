@@ -12,7 +12,7 @@ globalStyle('*', {
 globalStyle('html, body', {
   height: '100%',
   fontFamily: vars.fonts.sans,
-  backgroundColor: vars.colors.surface.lowest,
+  backgroundColor: vars.colors['surface.lowest'],
 })
 
 globalStyle('body', {

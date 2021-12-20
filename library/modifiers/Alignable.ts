@@ -1,21 +1,24 @@
-import type { Property } from 'csstype'
+import classNames from 'classnames'
+import { alignments } from '@tokens'
+import { atoms } from '@themes/atoms.css'
 
-export type Alignment = 'leading' | 'center' | 'trailing'
+export type Alignment = keyof typeof alignments
 
 export interface Alignable extends JSX.Element {
   alignment: <T extends Alignable>(this: T, alignment: Alignment) => T
 }
 
-const alignmentMap: { [key in Alignment]: Property.AlignItems } = {
-  leading: 'flex-start',
-  center: 'center',
-  trailing: 'flex-end',
-}
-
 export function alignment<T extends Alignable>(this: T, alignment: Alignment) {
+  const className = classNames(
+    this.props.className,
+    atoms({
+      alignItems: alignment,
+    }),
+  )
+
   this.props = {
     ...this.props,
-    style: { ...this.props.style, alignItems: alignmentMap[alignment] },
+    className,
   }
 
   return this

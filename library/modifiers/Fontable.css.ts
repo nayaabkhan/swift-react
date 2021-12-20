@@ -1,10 +1,12 @@
-import { styleVariants } from '@vanilla-extract/css'
-import { vars } from '@themes/default.css'
+import { atoms } from '@themes/atoms.css'
 
-export const fontVariants = styleVariants({
-  heading: { fontSize: vars.fontSizes.base, fontWeight: 'bold' },
-  subheading: {
-    fontSize: vars.fontSizes.small,
-    color: vars.colors.text.muted,
-  },
-})
+export const fontVariants = {
+  heading: atoms({
+    fontSize: 'base',
+    fontWeight: 'bold',
+  }),
+  subheading: atoms({
+    fontSize: 'small',
+    color: 'text.muted',
+  }),
+}

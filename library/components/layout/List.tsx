@@ -40,7 +40,7 @@ export default function List<T extends Identifiable>(
               </NavigationContext.Consumer>,
             )
               .alignment('center')
-              .spacing('looser')}
+              .spacing('medium')}
           </li>
         )
       })}

@@ -1,5 +1,5 @@
-import { style } from '@vanilla-extract/css'
+import { atoms } from '@themes/atoms.css'
 
-export default style({
+export default atoms({
   flexGrow: '1',
 })

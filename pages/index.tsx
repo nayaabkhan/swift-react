@@ -12,7 +12,7 @@ const Home: NextPage = () =>
 
 function SandwichCell(sandwich: Sandwich) {
   return HStack(
-    Image(`/images/${sandwich.imageName}`).size(32),
+    Image(`/images/${sandwich.imageName}`).size(32).rounded('sm'),
     VStack(
       Text(sandwich.name).font('heading').as('h3'),
       Text(`${sandwich.ingredientCount} ingredients`)
@@ -21,7 +21,7 @@ function SandwichCell(sandwich: Sandwich) {
     ),
   )
     .alignment('center')
-    .spacing('looser')
+    .spacing('medium')
 }
 
 export default Home
