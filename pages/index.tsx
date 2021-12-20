@@ -12,7 +12,7 @@ const Home: NextPage = () =>
 
 function SandwichCell(sandwich: Sandwich) {
   return HStack(
-    Image(`/images/${sandwich.imageName}`).size(32).rounded('sm'),
+    Image(`/images/${sandwich.thumbnailName}`).size(32).rounded('sm'),
     VStack(
       Text(sandwich.name).font('heading').as('h3'),
       Text(`${sandwich.ingredientCount} ingredients`)
